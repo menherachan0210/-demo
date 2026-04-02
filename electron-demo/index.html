@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>扫码联动桌面端 Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="layout-grid">
+        <section class="screen screen-pairing">
+          <p class="eyebrow">Pairing</p>
+          <h1>请用手机扫描配对二维码</h1>
+          <p class="pairing-note">二维码常驻显示，多台手机都可以继续扫码连接。</p>
+          <div class="qr-frame">
+            <div id="qrPlaceholder" class="qr-placeholder">正在生成配对二维码</div>
+            <img id="pairQrImage" alt="配对二维码" class="pair-qr hidden" />
+          </div>
+        </section>
+
+        <section class="screen screen-dashboard">
+          <div class="device-card">
+            <div class="result-head">
+              <span class="device-label">已连接设备</span>
+              <span id="deviceCount" class="scan-count">0 台</span>
+            </div>
+            <div id="deviceList" class="device-list">
+              <div class="empty-record">等待手机连接</div>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-head">
+              <span class="result-label">扫码记录</span>
+              <span id="scanCount" class="scan-count">0 条</span>
+            </div>
+            <div id="scanList" class="scan-list">
+              <div class="empty-record">等待扫码</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

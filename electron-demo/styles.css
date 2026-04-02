@@ -1,0 +1,234 @@
+:root {
+  --bg: #f2f6f8;
+  --panel: rgba(255, 255, 255, 0.96);
+  --line: rgba(16, 42, 67, 0.08);
+  --text: #0f2940;
+  --muted: #698092;
+  --accent: #0f766e;
+  --shadow: 0 24px 60px rgba(15, 41, 64, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 28%),
+    linear-gradient(180deg, #fbfcfd 0%, var(--bg) 100%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.layout-grid {
+  width: min(1260px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(360px, 440px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.screen {
+  width: 100%;
+  padding: 32px;
+  border-radius: 32px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.screen-pairing {
+  text-align: center;
+  position: sticky;
+  top: 32px;
+}
+
+.screen-dashboard {
+  display: grid;
+  gap: 20px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 14px 0 0;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.pairing-note {
+  margin: 14px auto 0;
+  max-width: 320px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.qr-frame,
+.device-card,
+.result-card {
+  border-radius: 28px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.qr-frame {
+  width: 100%;
+  margin: 28px auto 0;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.pair-qr {
+  width: min(100%, 340px);
+  aspect-ratio: 1;
+}
+
+.qr-placeholder {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.device-card,
+.result-card {
+  padding: 28px;
+}
+
+.device-label,
+.result-label {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.result-head,
+.scan-meta,
+.device-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.scan-count {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.device-list,
+.scan-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  overflow: auto;
+}
+
+.device-list {
+  max-height: 260px;
+}
+
+.scan-list {
+  max-height: 480px;
+}
+
+.device-item,
+.scan-item,
+.empty-record {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #f8fbfc;
+  border: 1px solid var(--line);
+}
+
+.device-name {
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.device-time,
+.scan-meta span,
+.device-meta,
+.empty-record {
+  color: var(--muted);
+}
+
+.device-time,
+.scan-meta strong,
+.scan-meta span,
+.device-meta {
+  font-size: 14px;
+}
+
+.device-meta {
+  margin-top: 8px;
+}
+
+.scan-content {
+  margin: 14px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screen-pairing {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 18px;
+  }
+
+  .screen {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .qr-frame {
+    min-height: 320px;
+    padding: 20px;
+  }
+
+  .device-name {
+    font-size: 20px;
+  }
+
+  .scan-content {
+    font-size: 20px;
+  }
+}
